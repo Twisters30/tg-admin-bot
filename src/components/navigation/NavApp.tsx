@@ -6,23 +6,39 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from "react-router-dom";
 import { useLocation } from 'react-router-dom'
+import {url} from "../../router/AppRouter";
+import {useEffect} from "react";
 
 const NavApp = () => {
-    const location = useLocation();
-    console.log(location.pathname);
-    const [valueNav, setValue] = React.useState(0);
+    const urlPathName = useLocation().pathname.split('/')[2];
+    const [valueNav, setValue] = React.useState('/');
+    useEffect(() => {
+        setValue(urlPathName)
+    }, )
     return (
         <Box sx={{ backgroundColor: 'transparent' }}>
             <BottomNavigation
                 sx={{borderRadius: "25px"}}
-                showLabels
+                showLabels={false}
                 value={valueNav}
                 onChange={(event, newValue) => {
                 setValue(newValue);
                 }}
             >
-                <BottomNavigationAction classes={{selected: "Mui-selected"}} className={location.pathname === '/login' ? 'Mui-selected' : ''} component={NavLink} to="/login" label="login" icon={<AccountCircleIcon />} />
-                <BottomNavigationAction classes={{selected: "Mui-selected"}} className={location.pathname === '/' ? 'Mui-selected' : ''} component={NavLink} to="/" label="quiz" icon={<AutoAwesomeIcon />} />
+                <BottomNavigationAction
+                    classes={{selected: "Mui-selected"}}
+                    component={NavLink} to={url + '/login'}
+                    value="login"
+                    label="login"
+                    icon={<AccountCircleIcon />}
+                />
+                <BottomNavigationAction
+                    classes={{selected: "Mui-selected"}}
+                    component={NavLink} to={url + '/quiz'}
+                    value="quiz"
+                    label="quiz"
+                    icon={<AutoAwesomeIcon />}
+                />
                 
             </BottomNavigation>
         </Box>

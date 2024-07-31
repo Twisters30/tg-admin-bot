@@ -26,20 +26,17 @@ const NavApp = () => {
                 }}
             >
                 <BottomNavigationAction
-                    classes={{selected: "Mui-selected"}}
-                    component={NavLink} to={url + '/login'}
-                    value="login"
-                    label="login"
-                    icon={<AccountCircleIcon />}
-                />
-                <BottomNavigationAction
-                    classes={{selected: "Mui-selected"}}
                     component={NavLink} to={url + '/quiz'}
                     value="quiz"
                     label="quiz"
                     icon={<AutoAwesomeIcon />}
                 />
-                
+                <BottomNavigationAction
+                    component={NavLink} to={url + '/login'}
+                    value="login"
+                    label="login"
+                    icon={<AccountCircleIcon />}
+                />
             </BottomNavigation>
         </Box>
     )

@@ -1,8 +1,8 @@
-import QuizForm from "../../components/forms/QuizForm";
+import LoginForm from "../../components/forms/login-form/LoginForm";
 
 const loginPage = () => {
     return (
-        <QuizForm />
+        <LoginForm />
     )
 }
 

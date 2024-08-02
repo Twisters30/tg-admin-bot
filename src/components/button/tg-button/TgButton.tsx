@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import './TgButton.css';
 
 type TgButtonProps = {
     className: string

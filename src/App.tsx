@@ -4,18 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from './router/AppRouter';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import {useEffect} from "react";
-
-// @ts-ignore
-const tg = window.Telegram.WebApp;
 
 function App() {
-	useEffect(() => {
-		tg.ready();
-	}, []);
-	const closeApp = () => {
-		tg.close()
-	}
 	return (
 		<BrowserRouter>
 			<HeaderApp/>
